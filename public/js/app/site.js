@@ -65,9 +65,9 @@ $('.navbar-collapse ul li a').click(function () {
     }
 
     var bgColors = [
-        // '#b1d1e0',
-        // '#f8931f',
-        // '#c9cf31'
+        '#b1d1e0',
+        '#f8931f',
+        '#c9cf31',
 
 //greens
         // '#95aa61',

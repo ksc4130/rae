@@ -228,7 +228,9 @@ a:focus {
 }
 
 .inner-section {
-    padding: 50px;
+    /*padding: 50px;*/
+    padding-top: 50px;
+    padding-bottom: 50px;
     width: 100%;
     color: #333;
     -webkit-background-size: cover;
@@ -237,8 +239,13 @@ a:focus {
     -o-background-size: cover;
 }
 
+.inner-content {
+    background-color: #f6f8ee;
+    padding: 50px;
+}
+
 @media (min-width: 767px) {
-  .inner-section {
+    .content > section {
       width: 90%;
   }
 
@@ -247,9 +254,19 @@ a:focus {
       margin-right: 10%;
   }
 
+    .content > section:nth-child(odd) .inner-section .inner-content {
+        margin-right: 5%;
+        width: 95%;
+    }
+
   .content > section:nth-child(even) {
       margin-left: 10%;
   }
+
+  .content > section:nth-child(even) .inner-section .inner-content {
+      margin-left: 5%;
+      width: 95%;
+ }
 }
 .btn {
   text-transform: uppercase;

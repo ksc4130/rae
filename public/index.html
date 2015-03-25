@@ -68,20 +68,22 @@
 
         <section ng-repeat="t in mainTmpls" id="{{t.id}}" class="content-section text-center">
             <div ng-style="{'background-color': t.bg}" class="overview inner-section">
-                <div class="row">
-                    <!-- <div class=" hidden-sm hidden-xs col-md-4">
-                        <img class="img-responsive img-thumbnail" src="css/img/bg_grass.jpg"/>
-                    </div> -->
-                    <div class="col-md-8 col-md-offset-2">
-                        <h2>{{t.heading}}</h2>
-                        <p ng-include="t.tmplId"></p>
+                <div class="inner-content">
+                    <div class="row">
+                        <!-- <div class=" hidden-sm hidden-xs col-md-4">
+                            <img class="img-responsive img-thumbnail" src="css/img/bg_grass.jpg"/>
+                        </div> -->
+                        <div class="col-md-8 col-md-offset-2">
+                            <h2>{{t.heading}}</h2>
+                            <p ng-include="t.tmplId"></p>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <a href="{{t.nId}}" style="color: #fff; border-color: #fff;" class="btn btn-circle page-scroll">
-                            <i ng-class="{'fa-angle-double-down': !t.isLast, 'fa-angle-double-up': t.isLast}" class="fa animated"></i>
-                        </a>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <a href="{{t.nId}}" style="color: #fff; border-color: #fff;" class="btn btn-circle page-scroll">
+                                <i ng-class="{'fa-angle-double-down': !t.isLast, 'fa-angle-double-up': t.isLast}" class="fa animated"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
