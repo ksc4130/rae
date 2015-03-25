@@ -69,9 +69,15 @@ $('.navbar-collapse ul li a').click(function () {
         // '#f8931f',
         // '#c9cf31'
 
-        '#95aa61',
-        '#d6e68a',
-        '#899752'
+//greens
+        // '#95aa61',
+        // '#d6e68a',
+        // '#899752'
+
+        '#21578a',
+        '#b5c50e',
+        '#889036',
+        '#5f874d'
     ];
 
     var mainTmpls = [

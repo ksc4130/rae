@@ -237,24 +237,6 @@ a:focus {
     -o-background-size: cover;
 }
 
-/*.overview {
-  background-color: #b1d1e0;
-}
-
-.focus {
-    background-color: #f8931f;
-}
-
-.sustain {
-  background-color: #c9cf31;
-}
-
-.contact {
-  background-color: #b1d1e0;
-}*/
-
-
-
 @media (min-width: 767px) {
   .inner-section {
       width: 90%;
