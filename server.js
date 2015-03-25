@@ -13,7 +13,7 @@ var server = new hapi.Server();
 // });
 
 server.connection({
-    host: 'localhost',
+    //host: 'localhost',
     port: 8080
 });
 
