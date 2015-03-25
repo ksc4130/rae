@@ -13,7 +13,10 @@ $('.navbar-collapse ul li a').click(function () {
 });
 
 (function () {
-    var app = angular.module('app', ['ngSanitize']);
+    var app = angular.module('app', [
+        'ngSanitize'
+        //, 'ui.bootstrap'
+    ]);
 
     app.directive('pageScroll', pageScroll);
     function pageScroll () {
@@ -62,9 +65,13 @@ $('.navbar-collapse ul li a').click(function () {
     }
 
     var bgColors = [
-        '#b1d1e0',
-        '#f8931f',
-        '#c9cf31'
+        // '#b1d1e0',
+        // '#f8931f',
+        // '#c9cf31'
+
+        '#95aa61',
+        '#d6e68a',
+        '#899752'
     ];
 
     var mainTmpls = [

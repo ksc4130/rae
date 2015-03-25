@@ -1,16 +1,15 @@
 var hapi = require('hapi');
 var path = require('path');
 
-var server = new hapi.Server();
-//     {
-//     connections: {
-//         routes: {
-//             files: {
-//                 relativeTo: path.join(__dirname, 'public')
-//             }
-//         }
-//     }
-// });
+var server = new hapi.Server({
+    connections: {
+        routes: {
+            files: {
+                relativeTo: path.join(__dirname, 'public')
+            }
+        }
+    }
+});
 
 server.connection({
     //host: 'localhost',
@@ -22,7 +21,7 @@ server.route({
     path: '/file/{filename*}',
     handler: {
         file: function (req) {
-            return 'public/' + req.params.filename;
+            return req.params.filename;
         }
     }
 });
@@ -31,7 +30,7 @@ server.route({
     method: 'GET',
     path: '/',
     handler: function (req, reply) {
-        reply.file('public/index.html');
+        reply.file('index.html');
     }
 });
 
