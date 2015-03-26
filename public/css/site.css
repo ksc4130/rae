@@ -2,6 +2,13 @@
   display: none !important;
 }
 
+.lean-with-it {
+    display: inline-block;
+    -ms-transform: rotate(7deg); /* IE 9 */
+    -webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
+    transform: rotate(7deg);
+}
+
 body {
   width: 100%;
   height: 100%;
