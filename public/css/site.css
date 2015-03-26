@@ -2,6 +2,39 @@
   display: none !important;
 }
 
+.social-trans {
+    color: #aaa;
+    transition: color 0.6s ease-in-out;
+}
+
+.social-list {
+    /*position: absolute;
+    top: 50%;
+    right: 10px;*/
+    font-size: 0px;
+    z-index: 9999;
+}
+
+.social-list li.social-item {
+    display: inline-block;
+    font-size: 18px;
+    border: 1px solid #aaa;
+    padding: 10px 18px;
+}
+
+.social-list li.social-item:not(:last-child) {
+    border-right: 0;
+}
+
+.social-box {
+    border: 1px solid #aaa;
+    padding: 10px;
+}
+
+.social-trans:hover {
+    color: #222;
+}
+
 .lean-with-it {
     display: inline-block;
     -ms-transform: rotate(7deg); /* IE 9 */
