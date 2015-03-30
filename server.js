@@ -1,5 +1,17 @@
 var hapi = require('hapi');
 var path = require('path');
+var fs = require('fs');
+
+var content;
+
+fs.readFile('./content.json', function (err, data) {
+    if(err) {
+        console.log('Error reading content', err);
+        return;
+    }
+
+    content = JSON.parse(data);
+});
 
 var server = new hapi.Server({
     connections: {
@@ -23,6 +35,14 @@ server.route({
         file: function (req) {
             return req.params.filename;
         }
+    }
+});
+
+server.route({
+    method: 'GET',
+    path: '/content',
+    handler: function (req, reply) {
+        reply(content);
     }
 });
 

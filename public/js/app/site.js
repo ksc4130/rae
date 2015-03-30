@@ -80,68 +80,35 @@ $('.navbar-collapse ul li a').click(function () {
         '#5f874d'
     ];
 
-    var mainTmpls = [
-        {
-            id: 'overview',
-            heading: 'Company Overview',
-            content: 'r. anthony enterprises, llc (rAe) was founded by Rocco A. Piacentino as an oil field service and energy development company.' +
-                'The company evolved to become a leader in alternative fuel station build and service  From natural gas to propane,' +
-                'rAe has the experience to have your company reaping the benefits of America\'s vast energy resources. We deliver reliable solutions' +
-                'to our clients and create long-term value. We leverage our expertise in technology, welding and business development to meet our clients’'+
-                ' specific objectives and to build successful ventures with our strategic partners.'
-        },
-        {
-            id: 'focus',
-            heading: 'Market Focus',
-            content: 'rAe is focused on serving the traditional and alternative energy markets.' +
-                'We recognize the challenges related to energy resources that face our communities and we provide innovative,' +
-                'effective solutions to those challenges.'
-        },
-        {
-            id: 'sustain',
-            heading: 'Sustainability',
-            content: 'rAe is committed to building long-lasting relationships in the communities where we do business.' +
-                'Environmental responsibility and community outreach programs are key to our strategic vision.' +
-                'Through responsible business practices and charitable initiatives, our owners and employees are committed to adding long-term value to our communities.'
-        },
-        {
-            id: 'contact',
-            heading: 'Contact Us',
-            content: '<div><a title="Info" href="mailto:info@ranthonyent.com ">info@ranthonyent.com </a></div>' +
-                '<form class="form">' +
-                    '<div class="col-md-8 col-md-offset-2">' +
-                    '<div class="form-group ">' +
-                    '<label for="name">Name</label>' +
-                    '<input type="text" class="form-control" id="name" placeholder="first last">' +
-                    '</div>' +
-                    '<div class="form-group">' +
-                    '<label for="email">Email</label>' +
-                    '<input type="email" class="form-control" id="email" placeholder="email@example.com">' +
-                    '</div>' +
-                    '<div class="form-group">' +
-                    '<label for="phone">Phone</label>' +
-                    '<input type="tel" class="form-control" id="phone" placeholder="(555)555-5555">' +
-                    '</div>' +
-                    '<div class="form-group">' +
-                    '<label for="comment">Comment</label>' +
-                    '<textarea class="form-control" id="comment" rows="5"></textarea>' +
-                    '</div>' +
-                    '<button class="btn btn-primary">Submit</button>' +
-                    '</div>' +
-                    '</form>'
-        }
-    ];
+    contentSrv.$inject = ['$http'];
+    app.factory('content', contentSrv);
+    function contentSrv ($http) {
+        return {
+            get: function () {
+                var p = $http.get('/content').then(function (r) {
+                    console.log('content res', r);
+                    return r.data;
+                });
 
-    mainCtrl.$inject = ['$scope', '$templateCache'];
+                return p;
+            }
+        };
+    }
+
+    mainCtrl.$inject = ['$scope', '$templateCache', 'content'];
     app.controller('mainCtrl', mainCtrl);
-    function mainCtrl ($scope, $templateCache) {
-        $scope.mainTmpls = mainTmpls.map(function (item, i){
-            item.tmplId = item.id + i;
-            $templateCache.put(item.tmplId, item.content);
-            item.isLast = !(i + 1 < mainTmpls.length);
-            item.nId = '#' + (i + 1 < mainTmpls.length ? mainTmpls[i + 1].id :  mainTmpls[0].id);
-            item.bg = bgColors[(i % bgColors.length)];
-            return item;
+    function mainCtrl ($scope, $templateCache, content) {
+        $scope.mainTmpls = [];
+        content.get().then(function (d) {
+            console.log('d', d);
+            $scope.mainTmpls = d.map(function (item, i){
+                item.tmplId = item.id + i;
+                $templateCache.put(item.tmplId, item.content);
+                item.isLast = !(i + 1 < d.length);
+                item.nId = '#' + (i + 1 < d.length ? d[i + 1].id :  d[0].id);
+                item.bg = bgColors[(i % bgColors.length)];
+                return item;
+            });
         });
     }
 }());

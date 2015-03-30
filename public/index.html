@@ -47,7 +47,6 @@
         </div>
         <!-- /.container -->
     </nav>
-
     <header class="intro">
         <div class="intro-body">
             <div class="container">
@@ -92,7 +91,6 @@
     </header>
 
     <article ng-controller="mainCtrl" class="content">
-
         <section ng-repeat="t in mainTmpls" id="{{t.id}}" class="content-section text-center">
             <div ng-style="{'background-color': t.bg}" class="overview inner-section">
                 <div class="inner-content">
@@ -102,7 +100,7 @@
                         </div> -->
                         <div class="col-md-8 col-md-offset-2">
                             <h2>{{t.heading}}</h2>
-                            <p ng-include="t.tmplId"></p>
+                            <p class="text-justify" ng-include="t.tmplId"></p>
                         </div>
                     </div>
                     <div class="row">
