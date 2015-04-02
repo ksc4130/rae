@@ -2,6 +2,10 @@
   display: none !important;
 }
 
+.text-green {
+  color: #96c63c;
+}
+
 .social-trans {
     color: #aaa;
     transition: color 0.6s ease-in-out;
